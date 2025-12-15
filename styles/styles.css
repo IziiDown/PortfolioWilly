@@ -1,0 +1,892 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation d'apparition au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px); /* Décalé vers le bas */
+  transition: all 1s ease-out; /* Transition douce */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0); /* Revient à sa place */
+}
+
+:root {
+  --space-black: #020205;
+  --star-white: #ffffff;
+  --star-blue: #aecbeb;
+  --star-gold: #e8cba3;
+  --nav-bg: rgba(2, 2, 5, 0.8);
+}
+
+body {
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding-top: 0; 
+  background-color: var(--space-black);
+  color: var(--star-white);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Starry Background - Layer 1: Small distant stars */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  z-index: 1;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 
+    120px 50px 2px 0px rgba(255, 255, 255, 0.8),
+    450px 120px 1px 0px rgba(255, 255, 255, 0.6),
+    780px 200px 1px 0px rgba(174, 203, 235, 0.7),
+    1100px 80px 2px 0px rgba(255, 255, 255, 0.9),
+    200px 300px 1px 0px rgba(232, 203, 163, 0.6),
+    600px 400px 1px 0px rgba(255, 255, 255, 0.7),
+    900px 500px 2px 0px rgba(174, 203, 235, 0.8),
+    1300px 250px 1px 0px rgba(255, 255, 255, 0.6),
+    300px 600px 1px 0px rgba(255, 255, 255, 0.8),
+    700px 700px 2px 0px rgba(232, 203, 163, 0.7),
+    1500px 350px 1px 0px rgba(255, 255, 255, 0.9),
+    100px 800px 1px 0px rgba(174, 203, 235, 0.6),
+    1200px 600px 2px 0px rgba(255, 255, 255, 0.8),
+    400px 150px 1px 0px rgba(255, 255, 255, 0.7),
+    1400px 450px 1px 0px rgba(232, 203, 163, 0.8),
+    250px 900px 2px 0px rgba(255, 255, 255, 0.9),
+    850px 100px 1px 0px rgba(174, 203, 235, 0.7),
+    1600px 550px 1px 0px rgba(255, 255, 255, 0.6),
+    500px 1000px 2px 0px rgba(255, 255, 255, 0.8),
+    1000px 300px 1px 0px rgba(232, 203, 163, 0.7),
+    150px 450px 1px 0px rgba(255, 255, 255, 0.9),
+    950px 850px 2px 0px rgba(174, 203, 235, 0.8),
+    1350px 150px 1px 0px rgba(255, 255, 255, 0.7),
+    350px 750px 1px 0px rgba(255, 255, 255, 0.6),
+    750px 950px 2px 0px rgba(232, 203, 163, 0.8),
+    1550px 750px 1px 0px rgba(255, 255, 255, 0.9),
+    50px 550px 1px 0px rgba(174, 203, 235, 0.7),
+    1450px 900px 2px 0px rgba(255, 255, 255, 0.8),
+    650px 250px 1px 0px rgba(255, 255, 255, 0.7),
+    1250px 1050px 1px 0px rgba(232, 203, 163, 0.6),
+    180px 1100px 2px 0px rgba(255, 255, 255, 0.9),
+    580px 650px 1px 0px rgba(174, 203, 235, 0.8),
+    980px 1150px 1px 0px rgba(255, 255, 255, 0.7),
+    1380px 700px 2px 0px rgba(255, 255, 255, 0.8),
+    280px 200px 1px 0px rgba(232, 203, 163, 0.7),
+    680px 1200px 1px 0px rgba(255, 255, 255, 0.6),
+    1080px 400px 2px 0px rgba(174, 203, 235, 0.9),
+    1480px 1000px 1px 0px rgba(255, 255, 255, 0.8),
+    380px 500px 1px 0px rgba(255, 255, 255, 0.7),
+    1180px 1250px 2px 0px rgba(232, 203, 163, 0.8),
+    80px 1300px 1px 0px rgba(255, 255, 255, 0.9),
+    880px 600px 1px 0px rgba(174, 203, 235, 0.7),
+    1280px 50px 2px 0px rgba(255, 255, 255, 0.8),
+    480px 1350px 1px 0px rgba(255, 255, 255, 0.6),
+    1680px 800px 1px 0px rgba(232, 203, 163, 0.7),
+    220px 1400px 2px 0px rgba(255, 255, 255, 0.9),
+    820px 350px 1px 0px rgba(174, 203, 235, 0.8),
+    1420px 1100px 1px 0px rgba(255, 255, 255, 0.7),
+    320px 1050px 2px 0px rgba(255, 255, 255, 0.8),
+    920px 1450px 1px 0px rgba(232, 203, 163, 0.7);
+  animation: twinkle 8s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Starry Background - Layer 2: Medium bright stars */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  z-index: 1;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 
+    300px 100px 2px 1px rgba(255, 255, 255, 0.9),
+    800px 300px 3px 1px rgba(174, 203, 235, 0.8),
+    1200px 500px 2px 1px rgba(232, 203, 163, 0.9),
+    150px 700px 3px 1px rgba(255, 255, 255, 0.8),
+    1400px 200px 2px 1px rgba(174, 203, 235, 0.9),
+    500px 900px 3px 1px rgba(255, 255, 255, 0.9),
+    1000px 150px 2px 1px rgba(232, 203, 163, 0.8),
+    250px 400px 3px 1px rgba(255, 255, 255, 0.9),
+    1300px 800px 2px 1px rgba(174, 203, 235, 0.8),
+    700px 600px 3px 1px rgba(255, 255, 255, 0.9),
+    100px 1000px 2px 1px rgba(232, 203, 163, 0.9),
+    1500px 400px 3px 1px rgba(255, 255, 255, 0.8),
+    400px 1200px 2px 1px rgba(174, 203, 235, 0.9),
+    900px 50px 3px 1px rgba(255, 255, 255, 0.9),
+    1100px 1100px 2px 1px rgba(232, 203, 163, 0.8),
+    600px 800px 3px 1px rgba(255, 255, 255, 0.9),
+    50px 200px 2px 1px rgba(174, 203, 235, 0.8),
+    1600px 1000px 3px 1px rgba(255, 255, 255, 0.9),
+    350px 350px 2px 1px rgba(232, 203, 163, 0.9),
+    1450px 650px 3px 1px rgba(255, 255, 255, 0.8),
+    750px 1300px 2px 1px rgba(174, 203, 235, 0.9),
+    200px 1150px 3px 1px rgba(255, 255, 255, 0.9),
+    1250px 250px 2px 1px rgba(232, 203, 163, 0.8),
+    550px 550px 3px 1px rgba(255, 255, 255, 0.9),
+    1350px 950px 2px 1px rgba(174, 203, 235, 0.8),
+    450px 50px 3px 1px rgba(255, 255, 255, 0.9),
+    1050px 750px 2px 1px rgba(232, 203, 163, 0.9),
+    650px 1400px 3px 1px rgba(255, 255, 255, 0.8),
+    1550px 100px 2px 1px rgba(174, 203, 235, 0.9),
+    850px 450px 3px 1px rgba(255, 255, 255, 0.9);
+  animation: twinkle 6s infinite ease-in-out 1s;
+  pointer-events: none;
+}
+
+/* Twinkling animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--nav-bg);
+  color: white;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #111;
+}
+
+section {
+  padding: 60px 20px;
+  min-height: 100vh;
+  border-bottom: 1px solid #1a1a2e; /* Subtle dark border */
+  position: relative;
+}
+
+/* Add subtle nebula glow to sections */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+section:nth-child(odd)::before {
+  background: radial-gradient(ellipse at 20% 30%, rgba(174, 203, 235, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, rgba(232, 203, 163, 0.1) 0%, transparent 50%);
+}
+
+section:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02); /* Slight tint for contrast */
+}
+
+section:nth-child(even)::before {
+  background: radial-gradient(ellipse at 70% 40%, rgba(232, 203, 163, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse at 30% 80%, rgba(174, 203, 235, 0.1) 0%, transparent 50%);
+}
+
+header {
+  height: 100vh; /* Takes up 100% of viewport height */
+  /* background-color: #0d1b2a; REMOVED to show video */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-align: center;
+  /* Centered but shifted more to left */
+  /* Centered but shifted more to left */
+  padding-right: 60%;
+  position: relative; /* Essential for absolute positioning of children */
+  overflow: hidden; /* Ensures particles don't scrollbar */
+}
+
+/* Gradient transition to black space content */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--space-black));
+  z-index: 3;
+  pointer-events: none;
+}
+
+#canvas1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Particles Middle */
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Video Background */
+}
+
+/* Ensure text is above canvas */
+header h1, header p {
+  z-index: 2; /* Text Foreground */
+}
+
+header h1 {
+  font-size: 4em;
+  margin: 0;
+  position: relative;
+  top: -10vh; /* Move text up independently */
+}
+
+header p {
+  font-size: 1.5em;
+  margin-top: 10px;
+  font-style: italic;
+  color: #e0e1dd; /* Slightly lighter text for subtitle */
+  position: relative;
+  top: -10vh; /* Move text up independently */
+}
+
+/* Carousel Styles */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    min-height: 400px; /* Prevent jumping */
+}
+
+.carousel-content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.carousel-slide {
+    display: none;
+    animation: fadeEffect 0.5s;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--star-gold);
+}
+
+.carousel-slide p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.carousel-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--star-white);
+    font-size: 3em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    padding: 10px;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.carousel-btn:hover {
+    color: var(--star-blue);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 0 10px;
+    }
+    
+    .carousel-content {
+        margin: 0 5px;
+    }
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* Section Headings Enhancement */
+section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--star-white);
+    text-shadow: 0 0 20px rgba(174, 203, 235, 0.5),
+                 0 0 40px rgba(174, 203, 235, 0.3);
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--star-blue), transparent);
+    margin: 20px auto 0;
+    box-shadow: 0 0 10px var(--star-blue);
+}
+
+/* Shooting star animation */
+@keyframes shootingStar {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(300px) translateY(300px);
+        opacity: 0;
+    }
+}
+
+/* Skills Section */
+
+#competences {
+    display: block; /* Default block to keep Title at top */
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 10vh auto 40px auto; /* Push down by 10vh for 'middle-high' look */
+    padding: 0 20px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--star-blue);
+}
+
+
+.skill-card h3 {
+    color: var(--star-gold);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.skill-info span {
+    color: var(--star-white);
+}
+
+.skill-info .percentage {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show percentage when hovering the CARD */
+.skill-card:hover .skill-info .percentage {
+    opacity: 1;
+}
+
+/* Progress Bar Container */
+.progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Actual Progress */
+.progress {
+    background: linear-gradient(90deg, var(--star-blue), var(--star-gold));
+    height: 100%;
+    border-radius: 10px;
+    /* Use transform to animate width from 0 to 100% of the inline width setting */
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Animate progress when hovering the CARD */
+.skill-card:hover .progress {
+    transform: scaleX(1);
+}
+
+.skill-card:hover .skill-info .percentage {
+    opacity: 1;
+}
+
+/* Skills Legend */
+.skills-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    color: var(--star-white);
+    opacity: 0.7;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Contact Section */
+#contact {
+    min-height: 60vh;
+    display: block; /* Use block to rely on padding for top spacing, alignment natural flow */
+    /* Removed flex centering to put content 'at top' */
+}
+
+.contact-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto 0 auto; /* Add top margin visually if needed, center horizontally */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.email-link {
+    display: inline-block;
+    font-size: 1.5em;
+    color: var(--star-blue);
+    margin: 20px 0;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--star-gold);
+    transform: scale(1.05);
+}
+
+.cv-container {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, var(--star-blue), #2a5298);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(42, 82, 152, 0.4);
+    background: linear-gradient(45deg, #2a5298, var(--star-blue));
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Central Line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--star-white);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+    opacity: 0.2;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Place items Left or Right */
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+/* The Content Box */
+.timeline-content {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05); /* Glassmorphism */
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: var(--star-blue);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* The Dot on the Line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--star-black); /* fallback */
+    background-color: var(--space-black);
+    border: 4px solid var(--star-gold);
+    top: 25px; /* Align with top of content roughly */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+/* Arrows pointing to the line */
+.timeline-item.left .timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: -10px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item.right .timeline-content::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: -10px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+}
+
+/* Text Styles */
+.timeline-content .date {
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgba(174, 203, 235, 0.2); /* Star Blue Tint */
+    border-radius: 20px;
+    color: var(--star-blue);
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--star-gold);
+}
+
+.timeline-content h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-style: italic;
+    font-weight: normal;
+    color: #ddd;
+}
+
+.timeline-content p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Future Item Special Style */
+.timeline-item.future .timeline-content {
+    border: 1px dashed var(--star-gold);
+    background: rgba(232, 203, 163, 0.05); /* Gold tint */
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+  
+  /* Full-width containers */
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  /* Make sure all items are 'right' style visually (next to line on left) */
+  .timeline-item::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Fix Right/Left positioning override */
+  .timeline-item.left, .timeline-item.right {
+    left: 0;
+  }
+  
+  /* Move dots to the left */
+  .timeline-item.left::after, .timeline-item.right::after {
+    left: 21px; /* Center of line at 31px - 10px radius */
+  }
+  
+  /* Fix arrows for mobile */
+   .timeline-item.left .timeline-content::before, .timeline-item.right .timeline-content::before {
+       left: -10px;
+       border-width: 10px 10px 10px 0;
+       border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+       right: auto;
+   }
+}
+
+/* Portfolio Folders & Interaction */
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.folder-container {
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.folder {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+/* Folder Back (The static part behind) */
+.folder-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2a5298; /* Dark Blue */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Folder Tab (Top part of back folder) */
+.folder-back::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100px;
+    height: 20px;
+    background-color: #2a5298;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Folder Front (The cover) */
+.folder-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--star-blue), #2a5298);
+    border-radius: 10px;
+    z-index: 3;
+    transform-origin: bottom;
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.folder-label {
+    color: white;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 10px;
+}
+
+/* Simple Hover Effect: Just tilt */
+.folder-container:hover .folder-front {
+    transform: rotateX(-20deg);
+}
+
+.folder-container.active .folder-front {
+    transform: rotateX(-20deg);
+    box-shadow: 0 15px 30px rgba(42, 82, 152, 0.4);
+    border: 1px solid var(--star-gold);
+}
+
+/* Shared Project Display Area */
+.project-display {
+    max-width: 900px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 15px;
+    padding: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    min-height: 200px;
+}
+
+.project-display.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.display-content h3 {
+    margin-top: 0;
+    color: #2a5298;
+    border-bottom: 2px solid var(--star-blue);
+    padding-bottom: 10px;
+}
+
+.display-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.display-content li {
+    background: #f0f4f8;
+    padding: 15px 25px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.display-content li:hover {
+    background: #e1e8f0;
+}
+
+.display-content a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        gap: 30px;
+    }
+}
+

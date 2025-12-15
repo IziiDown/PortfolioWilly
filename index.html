@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mon portfolio</title>
+    <meta name="description" content="Ceci est mon portfolio étudiant" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#experience">Expérience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Me contacter</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="Video/98717-649311189.mp4" type="video/mp4">
+        </video>
+        <canvas id="canvas1"></canvas>
+        <h1>Willy VU</h1>
+        <p>Première année d'informatique</p>
+    </header>
+
+    <section id="apropos">
+        <h2>À propos</h2>
+        
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            
+            <div class="carousel-content">
+                <!-- Slide 1: Introduction (Existing Content) -->
+                <div class="carousel-slide active">
+                   <h3>Qui suis-je ?</h3> <!-- Added Title for context -->
+                   <p class="reveal"><strong>Bienvenue sur mon portfolio</strong></p>
+                   <p class="reveal">Bonjour, je m'appelle Willy, j'ai 19 ans et je suis originaire de Lille.</p>
+                   <p class="reveal">Étant passionné par l'informatique depuis mes débuts, je me suis naturellement dirigé vers l'étude des systèmes intelligents. Ce qui me passionne dans l'IA: c'est comprendre le fonctionnement réel de l'IA—pas la hype, mais comment un modèle apprend, se trompe, puis s'améliore. Cette curiosité m'a rapidement orienté vers le machine learning et les métiers de la data.</p>
+                   <p class="reveal">Mon approche est résolument autodidacte et expérimentale. Je construis mes connaissances en combinant cours structurés et exploration autonome, en comprenant que rester à jour dans ce domaine est non négociable. Chaque projet, chaque ligne de code, chaque erreur me rapproche de mes objectifs.</p>
+                   <p class="reveal">Je vise un rôle en data science ou IA/ML où je pourrais appliquer rigueur scientifique et curiosité technique. Je sais que je suis en apprentissage—et c'est justement ma force. Je cherche des mentors, des défis stimulants, et une équipe qui valorise la croissance continue.</p>
+                   <p class="reveal">Si tu souhaites en savoir plus sur moi, mes compétences et mes projets, ou simplement me contacter, n'hésite pas à explorer ce site. Tu trouveras mes réalisations sur GitHub, où je suis heureux de partager mon parcours et mon évolution.</p>
+                   <p class="reveal">À bientôt !</p>
+                </div>
+
+                <!-- Slide 2: Mes Langues -->
+                <div class="carousel-slide">
+                    <h3>Mes Langues</h3>
+                    <p>Français : Langue maternelle 🇫🇷</p>
+                    <p>Anglais : Avancé (C1) 🇬🇧</p>
+                    <p>Chinois : Intermédiaire (B1) 🇨🇳</p>
+                    <p>Allemand : Débutant (A2) 🇩🇪</p>
+                </div>
+
+                <!-- Slide 3: Soft Skills -->
+                <div class="carousel-slide">
+                    <h3>Soft Skills</h3>
+                    <p>Curiosité & Apprentissage continu</p>
+                    <p>Rigueur scientifique</p>
+                    <p>Ponctualité</p>
+                    <p>Résolution de problèmes</p>
+                    <p>Curiosité</p>
+                </div>
+
+                <!-- Slide 4: Mes Passions -->
+                <div class="carousel-slide">
+                    <h3>Mes Passions</h3>
+                    <p>Le Machine Learning & l'IA</p>
+                    <p>Le gaming</p>
+                    <p>Les Échecs (Stratégie)</p>
+                    <p>Le Piano</p>
+                </div>
+            </div>
+
+            <button class="carousel-btn next-btn">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="competences">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span class="percentage">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span class="percentage">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span class="percentage">30%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Python</span>
+                        <span class="percentage">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>C</span>
+                        <span class="percentage">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>PHP</span>
+                        <span class="percentage">30%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Bases de données</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>SQL</span>
+                        <span class="percentage">60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>MySQL</span>
+                        <span class="percentage">30%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>Autre</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Adobe</span>
+                        <span class="percentage">50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Premiere Pro</span>
+                        <span class="percentage">40%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%"></div>
+                    </div>
+                </div>
+                 <div class="skill-item">
+                    <div class="skill-info">
+                        <span>VBA</span>
+                        <span class="percentage">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                 <div class="skill-item">
+                    <div class="skill-info">
+                        <span>UI/UX</span>
+                        <span class="percentage">60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-legend">
+            <div>0% = Ne connaît rien</div>
+            <div>25% = Connaît les bases</div>
+            <div>50% = Peut se débrouiller</div>
+            <div>75% = Confirmé</div>
+            <div>100% = Expert</div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Expérience & Formation</h2>
+        <div class="timeline">
+            <!-- 2021 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="date">2021</span>
+                    <h3>Stage d'observation</h3>
+                    <h4>Pharmacie Lafayette, Roubaix</h4>
+                    <p>Immersion dans le monde de la santé : découverte du fonctionnement d'une officine, accueil des patients et observation des protocoles de délivrance sous supervision.</p>
+                </div>
+            </div>
+            
+            <!-- 2023 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span class="date">2023</span>
+                    <h3>Stage de découverte - Graphisme</h3>
+                    <h4>Studio "Comme un Grand", Lille</h4>
+                    <p>Initiation à la création visuelle : participation à l'élaboration de moodboards et maquettes, et prise en main d'outils professionnels comme Photoshop et Canva.</p>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <span class="date">2024</span>
+                    <h3>Baccalauréat Général</h3>
+                    <h4>Marcq Institution</h4>
+                    <p>Obtention du baccalauréat avec spécialités scientifiques (Physique-Chimie, SVT), consolidant une base rigoureuse pour les études supérieures.</p>
+                </div>
+            </div>
+
+
+
+            <!-- 2025-2026 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <span class="date">2025 - 2026</span>
+                    <h3>Bachelor Informatique (1ère année)</h3>
+                    <h4>ESGI, Lille</h4>
+                    <p>Formation actuelle : Acquisition des fondamentaux en systèmes & réseaux, développement logiciel et technologies web. Une réorientation passionnée vers la tech.</p>
+                </div>
+            </div>
+
+            <!-- À venir -->
+            <div class="timeline-item left future">
+                <div class="timeline-content">
+                    <span class="date">À venir</span>
+                    <h3>Futur Expert Tech & IA</h3>
+                    <h4>En recherche d'opportunités</h4>
+                    <p>Ambition de se spécialiser en Intelligence Artificielle et Data Science, avec pour objectif d'appliquer ces technologies au domaine médical.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            
+            <!-- Dossier 1: Projets Personnels -->
+            <div class="folder-container" data-category="personal">
+                <div class="folder">
+                    <div class="folder-back"></div>
+                    <div class="folder-front">
+                        <span class="folder-label">Projets Personnels</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dossier 2: Projets Entreprise -->
+            <div class="folder-container" data-category="enterprise">
+                <div class="folder">
+                    <div class="folder-back"></div>
+                    <div class="folder-front">
+                        <span class="folder-label">Projets Entreprise</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dossier 3: Projets École -->
+            <div class="folder-container" data-category="school">
+                <div class="folder">
+                    <div class="folder-back"></div>
+                    <div class="folder-front">
+                        <span class="folder-label">Projets École</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Shared Display Area -->
+        <div id="project-display" class="project-display">
+            <div class="display-content">
+                <h3 id="display-title">Sélectionnez un dossier</h3>
+                <ul id="display-list">
+                    <!-- Projects will appear here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Me contacter</h2>
+        <div class="contact-container">
+            <p>Une opportunité ? Une question ? N'hésitez pas à m'écrire :</p>
+            
+            <a href="mailto:vuwilly01052006@gmail.com" class="email-link">
+                vuwilly01052006@gmail.com
+            </a>
+            <div class="cv-container">
+                <p>Vous souhaitez en savoir plus sur mon parcours ?</p>
+                <a href="img/CV Willy vu.pdf" target="_blank" class="cta-btn">
+                    Voir mon CV
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="js/app.js"></script>
+
+</html>
